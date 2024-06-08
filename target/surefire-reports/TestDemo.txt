@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: TestDemo
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in TestDemo
+testIsPrimeNumber1  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at TestDemo.testIsPrimeNumber1(TestDemo.java:12)
+
+testIsPrimeNumber2  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at TestDemo.testIsPrimeNumber2(TestDemo.java:18)
+
+testIsPrimeNumber3  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at TestDemo.testIsPrimeNumber3(TestDemo.java:24)
+
