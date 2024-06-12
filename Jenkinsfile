@@ -45,7 +45,7 @@ pipeline {
                     echo "Attachment: ${attachment}"
                     // Update the custom field "Testcase Result" on Jira
 //                     httpRequest(
-//                         url: "https://your-domain.atlassian.net/rest/api/2/issue/${jiraIssueKey}/transitions",
+//                         url: "https://nguyenvandat.atlassian.net/rest/api/2/issue/${jiraIssueKey}/transitions",
 //                         httpMode: 'POST',
 //                         customHeaders: [
 //                             [name: 'Authorization', value: jiraAuth],
@@ -60,15 +60,15 @@ pipeline {
 //                         """
 //                     )
 //                     // Attach test result file to Jira issue
-//                     httpRequest(
-//                         url: "https://your-domain.atlassian.net/rest/api/2/issue/${jiraIssueKey}/attachments",
-//                         httpMode: 'POST',
-//                         customHeaders: [
-//                             [name: 'Authorization', value: jiraAuth],
-//                             [name: 'X-Atlassian-Token', value: 'no-check']
-//                         ],
-//                         uploadFile: attachment
-//                     )
+                    httpRequest(
+                        url: "https://nguyenvandat.atlassian.net/rest/api/2/issue/${jiraIssueKey}/attachments",
+                        httpMode: 'POST',
+                        customHeaders: [
+                            [name: 'Authorization', value: jiraAuth],
+                            [name: 'X-Atlassian-Token', value: 'no-check']
+                        ],
+                        uploadFile: attachment
+                    )
                 }
             }
         }
