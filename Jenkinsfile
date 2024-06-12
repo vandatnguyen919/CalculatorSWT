@@ -60,16 +60,22 @@ pipeline {
 //                         """
 //                     )
 //                     // Attach test result file to Jira issue
-                    httpRequest(
-                        url: "https://nguyenvandat.atlassian.net/rest/api/2/issue/${jiraIssueKey}/attachments",
-                        httpMode: 'POST',
-                        customHeaders: [
-                            [name: 'Authorization', value: jiraAuth],
-                            [name: 'X-Atlassian-Token', value: 'no-check']
-                        ],
-                        uploadFile: attachment,
-                        attachmentFileName: 'TEST-TestCalculatorCSV.xml'
-                    )
+//                     httpRequest(
+//                         url: "https://nguyenvandat.atlassian.net/rest/api/2/issue/${jiraIssueKey}/attachments",
+//                         httpMode: 'POST',
+//                         customHeaders: [
+//                             [name: 'Authorization', value: jiraAuth],
+//                             [name: 'X-Atlassian-Token', value: 'no-check']
+//                         ],
+//                         uploadFile: attachment,
+//                     )
+                     sh """
+                        curl -X POST \
+                        -H "Authorization: ${jiraAuth}" \
+                        -H "X-Atlassian-Token: no-check" \
+                        -F "file=@${attachment}" \
+                        https://nguyenvandat.atlassian.net/rest/api/2/issue/${jiraIssueKey}/attachments
+                    """
                 }
             }
         }
