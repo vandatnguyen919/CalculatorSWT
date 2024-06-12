@@ -1,14 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: TestCalculatorCSV
 -------------------------------------------------------------------------------
-Tests run: 24, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.230 s <<< FAILURE! -- in TestCalculatorCSV
-TestCalculatorCSV.test1(int, int, int)[9] -- Time elapsed: 0.007 s <<< FAILURE!
-java.lang.AssertionError: expected:<5> but was:<6>
-	at org.junit.Assert.fail(Assert.java:89)
-	at org.junit.Assert.failNotEquals(Assert.java:835)
-	at org.junit.Assert.assertEquals(Assert.java:647)
-	at org.junit.Assert.assertEquals(Assert.java:633)
-	at TestCalculatorCSV.test1(TestCalculatorCSV.java:12)
+Tests run: 24, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.214 s <<< FAILURE! -- in TestCalculatorCSV
+TestCalculatorCSV.test1(int, int, int)[9] -- Time elapsed: 0.009 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <5> but was: <6>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:527)
+	at TestCalculatorCSV.test1(TestCalculatorCSV.java:13)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
 	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)

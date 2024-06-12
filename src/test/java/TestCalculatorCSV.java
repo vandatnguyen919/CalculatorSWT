@@ -1,4 +1,5 @@
 import org.example.Calculator;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -9,21 +10,21 @@ public class TestCalculatorCSV {
     @CsvFileSource(resources = "/add.csv", numLinesToSkip = 1)
     void test1(int a, int b, int result) {
         Calculator math = new Calculator();
-        assertEquals(result, math.add(a,b));
+        Assertions.assertEquals(result, math.add(a,b));
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/substract.csv", numLinesToSkip = 1)
     void test2(int a, int b, int result) {
         Calculator math = new Calculator();
-        assertEquals(result, math.substract(a,b));
+        Assertions.assertEquals(result, math.substract(a,b));
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/multiply.csv", numLinesToSkip = 1)
     void test3(int a, int b, int result) {
         Calculator math = new Calculator();
-        assertEquals(result, math.multiply(a,b));
+        Assertions.assertEquals(result, math.multiply(a,b));
     }
 
     @ParameterizedTest
@@ -32,6 +33,6 @@ public class TestCalculatorCSV {
         Calculator math = new Calculator();
         float actual = math.divide(a, b);
         float delta = 0.0001f; // Specify a suitable delta for floating-point comparison
-        assertEquals(result, actual, delta);
+        Assertions.assertEquals(result, actual, delta);
     }
 }
