@@ -68,6 +68,7 @@ pipeline {
                             [name: 'X-Atlassian-Token', value: 'no-check']
                         ],
                         uploadFile: attachment,
+                        multipartName: "TEST-TestCalculatorCSV"
                     )
 //                      bat """
 //                         curl -X POST \
