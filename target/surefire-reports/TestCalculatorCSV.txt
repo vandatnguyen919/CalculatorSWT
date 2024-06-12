@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestCalculatorCSV
 -------------------------------------------------------------------------------
-Tests run: 24, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.245 s <<< FAILURE! - in TestCalculatorCSV
-test1{int, int, int}[9]  Time elapsed: 0.013 s  <<< FAILURE!
+Tests run: 24, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.205 s <<< FAILURE! - in TestCalculatorCSV
+test1{int, int, int}[9]  Time elapsed: 0.015 s  <<< FAILURE!
 java.lang.AssertionError: expected:<5> but was:<6>
 	at TestCalculatorCSV.test1(TestCalculatorCSV.java:12)
 
