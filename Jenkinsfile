@@ -1,6 +1,24 @@
 pipeline {
     agent any
+    tools {
+
+    }
     stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Checkout the code
+                    checkout scm
+                    // Extract Jira issue key from the latest commit message
+                    def commitMessage = sh(script: 'git log -1 --pretty=%B', returnStdout: true).trim()
+                    def jiraIssueKey = commitMessage.find(/NNS-\d+/) // Adjust the regex to match your Jira issue key pattern and replace PROJECT to PROJECT KEY
+                    if (!jiraIssueKey) {
+                        error "Jira issue key not found in the commit message."
+                    }
+                    env.JIRA_ISSUE_KEY = jiraIssueKey
+                }
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn clean test'
@@ -11,37 +29,6 @@ pipeline {
                 }
             }
         }
-//         stage('Build') {
-//             steps {
-//                 echo 'Building..'
-//             }
-//         }
-//         stage('Test') {
-//             steps {
-//                 echo 'Testing..'
-//             }
-//         }
-//         stage('Deploy') {
-//             steps {
-//                 echo 'Deploying....'
-//             }
-//         }
-//             stage('Checkout') {
-//                 steps {
-//                     script {
-//                         // Checkout the code
-//                         checkout scm
-//                         // Extract Jira issue key from the latest commit message
-//                         def commitMessage = sh(script: 'git log -1 --pretty=%B', returnStdout: true).trim()
-//                         def jiraIssueKey = commitMessage.find(/NNS-\d+/) // Adjust the regex to match your Jira issue key pattern and replace PROJECT to PROJECT KEY
-//                         if (!jiraIssueKey) {
-//                             error "Jira issue key not found in the commit message."
-//                         }
-//                         env.JIRA_ISSUE_KEY = jiraIssueKey
-//                     }
-//                 }
-//             }
-
 //             stage('Update Jira') {
 //                 steps {
 //                     script {
