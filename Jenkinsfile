@@ -35,13 +35,13 @@ pipeline {
                     def testResults = junit 'target/surefire-reports/*.xml'
                     def jiraIssueKey = env.JIRA_ISSUE_KEY
 //                     def jiraAuth = "Basic " + "username:api-token".bytes.encodeBase64().toString()
-//                     def status = testResults.failCount == 0 ? "Pass" : "Fail"
+                    def status = testResults.failCount == 0 ? "Pass" : "Fail"
 //                     def attachment = "target/surefire-reports/testng.xml"
 
                     echo "Test Results: ${testResults}"
                     echo "JIRA Issue Key: ${jiraIssueKey}"
 //                     echo "JIRA Auth: ${jiraAuth}"
-//                     echo "Status: ${status}"
+                    echo "Status: ${status}"
 //                     echo "Attachment: ${attachment}"
                     // Update the custom field "Testcase Result" on Jira
 //                     httpRequest(
