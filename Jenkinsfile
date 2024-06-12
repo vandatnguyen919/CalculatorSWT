@@ -36,13 +36,13 @@ pipeline {
                     def jiraIssueKey = env.JIRA_ISSUE_KEY
                     def jiraAuth = "Basic " + "${JIRA_CREDENTIALS}".bytes.encodeBase64().toString()
                     def status = testResults.failCount == 0 ? "Pass" : "Fail"
-//                     def attachment = "target/surefire-reports/testng.xml"
+                    def attachment = "target/surefire-reports/testng.xml"
 
                     echo "Test Results: ${testResults}"
                     echo "JIRA Issue Key: ${jiraIssueKey}"
                     echo "JIRA Auth: ${jiraAuth}"
                     echo "Status: ${status}"
-//                     echo "Attachment: ${attachment}"
+                    echo "Attachment: ${attachment}"
                     // Update the custom field "Testcase Result" on Jira
 //                     httpRequest(
 //                         url: "https://your-domain.atlassian.net/rest/api/2/issue/${jiraIssueKey}/transitions",
