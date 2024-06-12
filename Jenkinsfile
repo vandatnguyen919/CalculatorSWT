@@ -37,32 +37,38 @@ pipeline {
                     def jiraAuth = "Basic " + "username:api-token".bytes.encodeBase64().toString()
                     def status = testResults.failCount == 0 ? "Pass" : "Fail"
                     def attachment = "target/surefire-reports/testng.xml"
+
+                    echo "Test Results: ${testResults}"
+                    echo "JIRA Issue Key: ${jiraIssueKey}"
+                    echo "JIRA Auth: ${jiraAuth}"
+                    echo "Status: ${status}"
+                    echo "Attachment: ${attachment}"
                     // Update the custom field "Testcase Result" on Jira
-                    httpRequest(
-                        url: "https://your-domain.atlassian.net/rest/api/2/issue/${jiraIssueKey}/transitions",
-                        httpMode: 'POST',
-                        customHeaders: [
-                            [name: 'Authorization', value: jiraAuth],
-                            [name: 'Content-Type', value: 'application/json']
-                        ],
-                        requestBody: """
-                        {
-                            "fields": {
-                                "customfield_12345": "${status}" // Replace 'customfield_12345' with the ID of the 'Testcase Result' field
-                            }
-                        }
-                        """
-                    )
-                    // Attach test result file to Jira issue
-                    httpRequest(
-                        url: "https://your-domain.atlassian.net/rest/api/2/issue/${jiraIssueKey}/attachments",
-                        httpMode: 'POST',
-                        customHeaders: [
-                            [name: 'Authorization', value: jiraAuth],
-                            [name: 'X-Atlassian-Token', value: 'no-check']
-                        ],
-                        uploadFile: attachment
-                    )
+//                     httpRequest(
+//                         url: "https://your-domain.atlassian.net/rest/api/2/issue/${jiraIssueKey}/transitions",
+//                         httpMode: 'POST',
+//                         customHeaders: [
+//                             [name: 'Authorization', value: jiraAuth],
+//                             [name: 'Content-Type', value: 'application/json']
+//                         ],
+//                         requestBody: """
+//                         {
+//                             "fields": {
+//                                 "customfield_12345": "${status}" // Replace 'customfield_12345' with the ID of the 'Testcase Result' field
+//                             }
+//                         }
+//                         """
+//                     )
+//                     // Attach test result file to Jira issue
+//                     httpRequest(
+//                         url: "https://your-domain.atlassian.net/rest/api/2/issue/${jiraIssueKey}/attachments",
+//                         httpMode: 'POST',
+//                         customHeaders: [
+//                             [name: 'Authorization', value: jiraAuth],
+//                             [name: 'X-Atlassian-Token', value: 'no-check']
+//                         ],
+//                         uploadFile: attachment
+//                     )
                 }
             }
         }
