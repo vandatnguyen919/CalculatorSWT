@@ -67,7 +67,8 @@ pipeline {
                             [name: 'Authorization', value: jiraAuth],
                             [name: 'X-Atlassian-Token', value: 'no-check']
                         ],
-                        uploadFile: attachment
+                        uploadFile: attachment,
+                        attachmentFileName: 'TEST-TestCalculatorCSV.xml'
                     )
                 }
             }
