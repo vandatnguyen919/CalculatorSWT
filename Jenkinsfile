@@ -7,7 +7,7 @@ pipeline {
                     // Checkout the code
                     checkout scm
                     // Extract Jira issue key from the latest commit message
-                    def commitMessage = sh(script: 'git log -1 --pretty=%B', returnStdout: true).trim()
+                    def commitMessage = bat(script: 'git log -1 --pretty=%B', returnStdout: true).trim()
                     echo "Commit Message: ${commitMessage}"
                     def jiraIssueKey = commitMessage.find(/NNS-\d+/) // Adjust the regex to match your Jira issue key pattern and replace PROJECT to PROJECT KEY
                     echo "Jira Issue Key: ${jiraIssueKey}"
