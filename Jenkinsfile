@@ -1,21 +1,31 @@
 pipeline {
     agent any
-        stages {
-                stage('Build') {
-                    steps {
-                        echo 'Building..'
-                    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
                 }
-                stage('Test') {
-                    steps {
-                        echo 'Testing..'
-                    }
-                }
-                stage('Deploy') {
-                    steps {
-                        echo 'Deploying....'
-                    }
-                }
+            }
+        }
+//         stage('Build') {
+//             steps {
+//                 echo 'Building..'
+//             }
+//         }
+//         stage('Test') {
+//             steps {
+//                 echo 'Testing..'
+//             }
+//         }
+//         stage('Deploy') {
+//             steps {
+//                 echo 'Deploying....'
+//             }
+//         }
 //             stage('Checkout') {
 //                 steps {
 //                     script {
@@ -31,16 +41,7 @@ pipeline {
 //                     }
 //                 }
 //             }
-//             stage('Build') {
-//                 steps {
-//                     sh 'mvn clean test'
-//                 }
-//                 post {
-//                     always {
-//                         junit 'target/surefire-reports/*.xml'
-//                     }
-//                 }
-//             }
+
 //             stage('Update Jira') {
 //                 steps {
 //                     script {
