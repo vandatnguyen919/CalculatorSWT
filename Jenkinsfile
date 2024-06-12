@@ -1,8 +1,8 @@
 pipeline {
     agent any
-//     environment {
-//              PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.PATH}"
-//     }
+    environment {
+        JIRA_CREDENTIALS = credentials('JIRA-API-TOKEN')
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -34,7 +34,7 @@ pipeline {
                 script {
                     def testResults = junit 'target/surefire-reports/*.xml'
                     def jiraIssueKey = env.JIRA_ISSUE_KEY
-                    def jiraAuth = "Basic " + "datnvse184172@fpt.edu.vn:ATATT3xFfGF00Up2cfY0hL0BsEhQb1SGF-ogtdoQ173dZ-Tdszx0r2mjmX9sTZ_AewDvp2Bu0atdsTiq-a0hKleO5eI1elCSJqcLZHZt-bMsNuFzxQRwqBFL0E1r75sf2IYRzKXYfsxAm2CB5qkFAaKKuto6-czssikt-0G-L4Hg86MCZv8xa50=76D5A2C8".bytes.encodeBase64().toString()
+                    def jiraAuth = "Basic " + "${JIRA_CREDENTIALS}".bytes.encodeBase64().toString()
                     def status = testResults.failCount == 0 ? "Pass" : "Fail"
 //                     def attachment = "target/surefire-reports/testng.xml"
 
