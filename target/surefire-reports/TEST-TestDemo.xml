@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestDemo" time="0.001" tests="6" errors="0" skipped="0" failures="3">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestDemo" time="0.071" tests="6" errors="0" skipped="0" failures="3">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
-    <property name="sun.java.command" value="C:\Users\HIEU\AppData\Local\Temp\surefire3723909279824769659\surefirebooter8962341346574430634.jar C:\Users\HIEU\AppData\Local\Temp\surefire3723909279824769659 2024-06-12T09-42-41_530-jvmRun1 surefire268444353634992960tmp surefire_08730554952944630252tmp"/>
+    <property name="sun.java.command" value="C:\Users\HIEU\AppData\Local\Temp\surefire11526207593886322984\surefirebooter5413411687421870165.jar C:\Users\HIEU\AppData\Local\Temp\surefire11526207593886322984 2024-06-12T10-01-32_931-jvmRun1 surefire1816159306908101083tmp surefire_07802298885336510448tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\HIEU\Desktop\FPTU\24.2.SU\1.SWT301\Calculator\target\test-classes;C:\Users\HIEU\Desktop\FPTU\24.2.SU\1.SWT301\Calculator\target\classes;C:\Users\HIEU\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;C:\Users\HIEU\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;C:\Users\HIEU\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\HIEU\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;C:\Users\HIEU\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\HIEU\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\HIEU\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.0\junit-jupiter-5.10.0.jar;C:\Users\HIEU\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\HIEU\.m2\repository\org\junit\vintage\junit-vintage-engine\5.10.1\junit-vintage-engine-5.10.1.jar;C:\Users\HIEU\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\HIEU\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\HIEU\.m2\repository\org\junit\platform\junit-platform-suite-engine\1.10.1\junit-platform-suite-engine-1.10.1.jar;C:\Users\HIEU\.m2\repository\org\junit\platform\junit-platform-suite-api\1.10.1\junit-platform-suite-api-1.10.1.jar;C:\Users\HIEU\.m2\repository\org\junit\platform\junit-platform-suite-commons\1.10.1\junit-platform-suite-commons-1.10.1.jar;C:\Users\HIEU\.m2\repository\org\junit\platform\junit-platform-launcher\1.10.1\junit-platform-launcher-1.10.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\HIEU\AppData\Local\Temp\surefire3723909279824769659\surefirebooter8962341346574430634.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\HIEU\AppData\Local\Temp\surefire11526207593886322984\surefirebooter5413411687421870165.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.11+7-LTS-207"/>
@@ -63,7 +63,7 @@
 	at TestDemo.testIsPrimeNumber1(TestDemo.java:12)
 </failure>
   </testcase>
-  <testcase name="testIsPrimeNumber2" classname="TestDemo" time="0">
+  <testcase name="testIsPrimeNumber2" classname="TestDemo" time="0.001">
     <failure type="java.lang.AssertionError">java.lang.AssertionError
 	at TestDemo.testIsPrimeNumber2(TestDemo.java:18)
 </failure>
@@ -73,7 +73,7 @@
 	at TestDemo.testIsPrimeNumber3(TestDemo.java:24)
 </failure>
   </testcase>
-  <testcase name="testIsPrimeNumber4" classname="TestDemo" time="0.001"/>
+  <testcase name="testIsPrimeNumber4" classname="TestDemo" time="0"/>
   <testcase name="testIsPrimeNumber5" classname="TestDemo" time="0"/>
   <testcase name="testIsPrimeNumber6" classname="TestDemo" time="0"/>
 </testsuite>
