@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    environment {
-             PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.PATH}"
-    }
+//     environment {
+//              PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.PATH}"
+//     }
     stages {
         stage('Checkout') {
             steps {
@@ -11,19 +11,17 @@ pipeline {
                     checkout scm
                     // Extract Jira issue key from the latest commit message
                     def commitMessage = bat(script: 'git log -1 --pretty=%%B', returnStdout: true).trim()
-                    echo "Commit Message: ${commitMessage}"
                     def jiraIssueKey = commitMessage.find(/NNS-\d+/) // Adjust the regex to match your Jira issue key pattern and replace PROJECT to PROJECT KEY
-                    echo "Jira Issue Key: ${jiraIssueKey}"
-//                     if (!jiraIssueKey) {
-//                         error "Jira issue key not found in the commit message."
-//                     }
-//                     env.JIRA_ISSUE_KEY = jiraIssueKey
+                    if (!jiraIssueKey) {
+                        error "Jira issue key not found in the commit message."
+                    }
+                    env.JIRA_ISSUE_KEY = jiraIssueKey
                 }
             }
         }
         stage('Build') {
             steps {
-                sh 'mvn clean test'
+                bat 'mvn clean test'
             }
             post {
                 always {
