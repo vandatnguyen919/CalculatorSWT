@@ -69,7 +69,7 @@ pipeline {
 //                         ],
 //                         uploadFile: attachment,
 //                     )
-                     sh """
+                     bat """
                         curl -X POST \
                         -H "Authorization: ${jiraAuth}" \
                         -H "X-Atlassian-Token: no-check" \
